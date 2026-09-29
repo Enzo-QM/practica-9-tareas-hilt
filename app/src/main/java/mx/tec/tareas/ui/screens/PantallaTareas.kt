@@ -29,10 +29,12 @@ import mx.tec.tareas.ui.components.TarjetaTarea
 import mx.tec.tareas.ui.state.TareasViewModel
 import mx.tec.tareas.ui.theme.TareasTema
 import mx.tec.tareas.ui.theme.TareasTheme
+import mx.tec.tareas.ui.state.AppViewModelProvider
 
 /** Con estado: crea su ViewModel. */
 @Composable
-fun PantallaTareas(vm: TareasViewModel = viewModel()) {
+/** Con estado: el ViewModel lo arma la fábrica, con las piezas del contenedor. */
+fun PantallaTareas(vm: TareasViewModel = viewModel(factory = AppViewModelProvider.Factory)) {
     ListaTareas(
         tareas = vm.tareas,
         cargando = vm.cargando,
